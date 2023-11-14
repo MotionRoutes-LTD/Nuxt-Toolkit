@@ -1,0 +1,29 @@
+{
+  "name": "nuxt-toolkit",
+  "version": "1.0.0",
+  "description": "A comprehensive toolkit for enhancing Nuxt.js development.",
+  "main": "toolkit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MotionRoutes-LTD/Nuxt-Toolkit.git"
+  },
+  "keywords": [
+    "nuxt",
+    "vue",
+    "toolkit",
+    "utilities",
+    "nuxtjs"
+  ],
+  "author": "Motion Routes LTD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MotionRoutes-LTD/Nuxt-Toolkit/issues"
+  },
+  "homepage": "https://github.com/MotionRoutes-LTD/Nuxt-Toolkit#readme",
+  "peerDependencies": {
+    "nuxt": "^2.0.0 || ^3.0.0"
+  }
+}
