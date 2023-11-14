@@ -149,17 +149,17 @@ export function deepClone(obj) {
   return clonedObj;
 }
 
-export default (context, inject) => {
-  inject("toolkit", {
-    addTransparency,
-    copyTextToClipboard,
-    openNewTab,
-    formatBalance,
-    formatDateAndTime,
-    getTimeAgo,
-    goTo,
-    areObjectsEqual,
-    extractKeys,
-    deepClone,
-  });
+const toolkit = {
+  addTransparency,
+  formatDateAndTime,
+  copyTextToClipboard,
+  openNewTab,
+  formatBalance,
+  getTimeAgo,
+  goTo,
+  areObjectsEqual,
+  extractKeys,
+  deepClone,
 };
+
+export default toolkit;
