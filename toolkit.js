@@ -1,4 +1,4 @@
-export function addTransparency(hexColor, transparency) {
+function addTransparency(hexColor, transparency) {
   hexColor = hexColor.replace("#", "");
 
   const r = parseInt(hexColor.slice(0, 2), 16);
@@ -12,7 +12,7 @@ export function addTransparency(hexColor, transparency) {
   return rgbaColor;
 }
 
-export function formatDateAndTime(timestamp) {
+function formatDateAndTime(timestamp) {
   const date = new Date(timestamp);
 
   const day = date.getUTCDate();
@@ -36,18 +36,18 @@ export function formatDateAndTime(timestamp) {
   return { date: formattedDate, time: formattedTime };
 }
 
-export function copyTextToClipboard(link) {
+function copyTextToClipboard(link) {
   navigator.clipboard.writeText(link);
   this.$notifier.showMessage({
     content: `Copied to clipboard`,
   });
 }
 
-export function openNewTab(link) {
+function openNewTab(link) {
   window.open(link, "_blank");
 }
 
-export function formatBalance(balance) {
+function formatBalance(balance) {
   if (balance === undefined || balance === null) {
     return "0.0"; // Ensure string is returned
   }
@@ -57,7 +57,7 @@ export function formatBalance(balance) {
   return parts.join(".");
 }
 
-export function getTimeAgo(timestamp) {
+function getTimeAgo(timestamp) {
   const date = new Date(timestamp);
   const now = new Date();
 
@@ -82,11 +82,11 @@ export function getTimeAgo(timestamp) {
   }
 }
 
-export function goTo(path) {
+function goTo(path) {
   this.$router.push({ path });
 }
 
-export function areObjectsEqual(obj1, obj2) {
+function areObjectsEqual(obj1, obj2) {
   // Check if either object is null
   if (obj1 === null || obj2 === null) {
     return obj1 === obj2; // If both are null, they are equal; otherwise, they are not
@@ -124,13 +124,13 @@ export function areObjectsEqual(obj1, obj2) {
   return true;
 }
 
-export function extractKeys(sourceObject, keysToExtract) {
+function extractKeys(sourceObject, keysToExtract) {
   return Object.fromEntries(
     Object.entries(sourceObject).filter(([key]) => keysToExtract.includes(key))
   );
 }
 
-export function deepClone(obj) {
+function deepClone(obj) {
   if (obj === null || typeof obj !== "object") {
     return obj;
   }
@@ -149,7 +149,7 @@ export function deepClone(obj) {
   return clonedObj;
 }
 
-const toolkit = {
+module.exports = {
   addTransparency,
   formatDateAndTime,
   copyTextToClipboard,
@@ -161,5 +161,3 @@ const toolkit = {
   extractKeys,
   deepClone,
 };
-
-module.exports = toolkit;
