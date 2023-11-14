@@ -15,13 +15,14 @@ export function addTransparency(hexColor, transparency) {
 export function formatDateAndTime(timestamp) {
   const date = new Date(timestamp);
 
-  const day = date.getDate();
-  const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(
-    date
-  );
-  const year = date.getFullYear();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+  const day = date.getUTCDate();
+  const month = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    timeZone: "UTC",
+  }).format(date);
+  const year = date.getUTCFullYear();
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
 
   // Convert to 12-hour time format
