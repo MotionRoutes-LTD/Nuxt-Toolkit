@@ -162,4 +162,4 @@ const toolkit = {
   deepClone,
 };
 
-export default toolkit;
+module.exports = toolkit;
