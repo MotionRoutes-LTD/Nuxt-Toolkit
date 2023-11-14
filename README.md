@@ -19,13 +19,32 @@ This toolkit includes a variety of utility functions:
 
 ## Installation
 
+To install `Nuxt-Toolkit`, run the following command in your project's root directory:
+
 ```bash
 npm install nuxt-toolkit
 ```
 
-## Usage
+### 1. Create a Plugin File:
 
-First, include the plugin in your nuxt.config.js:
+Navigate to the plugins directory in your Nuxt.js project. If it doesn't exist, create it.
+Inside the plugins directory, create a new file, for example, nuxt-toolkit.js.
+
+### 2. Set Up the Plugin File:
+
+In the newly created file (nuxt-toolkit.js), import the Nuxt-Toolkit package and set it up as follows:
+
+```js
+import * as toolkit from "nuxt-toolkit";
+
+export default (_, inject) => {
+  inject("toolkit", toolkit);
+};
+```
+
+### 3. Include the Plugin in Your Nuxt Configuration:
+
+Add a reference to this plugin in your nuxt.config.js file:
 
 ```js
 export default {
@@ -34,7 +53,11 @@ export default {
 };
 ```
 
-Then, you can use the toolkit in your Vue components:
+With this setup, Nuxt-Toolkit will be available throughout your Nuxt.js application, and you can access its functions using this.$toolkit.
+
+## Usage
+
+You can use the toolkit in your Vue components:
 
 ```vue
 <script>

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-toolkit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A comprehensive toolkit for enhancing Nuxt.js development.",
   "main": "toolkit.js",
   "scripts": {
