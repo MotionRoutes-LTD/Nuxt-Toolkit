@@ -10,6 +10,7 @@ import {
   areObjectsEqual,
   extractKeys,
   deepClone,
+  handle,
 } from "./toolkit";
 
 // Before all tests
@@ -107,5 +108,22 @@ describe("Nuxt-Toolkit Tests", () => {
     const clonedObj = deepClone(obj);
     expect(clonedObj).toEqual(obj);
     expect(clonedObj).not.toBe(obj);
+  });
+
+  describe("handle function", () => {
+    it("should resolve data correctly", async () => {
+      const promise = Promise.resolve("test data");
+      const [data, error] = await handle(promise);
+      expect(data).toBe("test data");
+      expect(error).toBeUndefined();
+    });
+
+    it("should catch errors correctly", async () => {
+      const promise = Promise.reject(new Error("test error"));
+      const [data, error] = await handle(promise);
+      expect(data).toBeUndefined();
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe("test error");
+    });
   });
 });

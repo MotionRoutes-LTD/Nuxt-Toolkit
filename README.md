@@ -6,6 +6,7 @@ Nuxt-Toolkit is a comprehensive utility plugin for Nuxt.js, offering a range of 
 
 This toolkit includes a variety of utility functions:
 
+- `handle`: Efficiently handle promises by returning a tuple [data, error], making error handling and data processing simpler in asynchronous operations.
 - `addTransparency`: Add transparency to a HEX color.
 - `formatDateAndTime`: Format Unix timestamps into readable date and time.
 - `copyTextToClipboard`: Copy a provided text to the clipboard.
@@ -76,6 +77,25 @@ You can use the toolkit in your Vue components:
 ```
 
 ## Documentation
+
+### `handle(promise)`
+
+Handles a Promise and returns a tuple `[data, error]`. If the promise resolves successfully, `data` will contain the result and `error` will be `undefined`. If the promise is rejected, `data` will be `undefined` and `error` will contain the error information.
+
+#### Usage Example:
+
+```javascript
+async function exampleUsage() {
+  const [data, dataError] = await this.$toolkit.handle(somePromise);
+
+  if (dataError) {
+    console.error("An error occurred:", dataError);
+    return;
+  }
+
+  console.log("Received data:", data);
+}
+```
 
 ### `addTransparency(hexColor, transparency)`
 

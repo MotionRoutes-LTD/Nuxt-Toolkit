@@ -149,6 +149,12 @@ function deepClone(obj) {
   return clonedObj;
 }
 
+function handle(promise) {
+  return promise
+    .then((data) => [data, undefined])
+    .catch((error) => Promise.resolve([undefined, error]));
+}
+
 module.exports = {
   addTransparency,
   formatDateAndTime,
@@ -160,4 +166,5 @@ module.exports = {
   areObjectsEqual,
   extractKeys,
   deepClone,
+  handle,
 };
