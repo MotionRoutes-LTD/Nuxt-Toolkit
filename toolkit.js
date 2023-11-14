@@ -49,7 +49,7 @@ export function openNewTab(link) {
 
 export function formatBalance(balance) {
   if (balance === undefined || balance === null) {
-    return 0.0; // or any other default value
+    return "0.0"; // Ensure string is returned
   }
 
   const parts = balance.toString().split(".");
